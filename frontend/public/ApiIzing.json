@@ -1,0 +1,454 @@
+{
+	"info": {
+		"_postman_id": "45badeef-72b5-44aa-b423-bd5c58cc72c9",
+		"name": "Izing Passaporte ZDG (Comunidade ZDG)",
+		"description": "Teste API IZING",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25151510"
+	},
+	"item": [
+		{
+			"name": "SendMessageParams",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3100/v1/api/external/7e862d5e-87a3-4e3c-80e7-6c26301f11d7/params/?body=A%20mensagem%20desejadaa&number=553588754197&externalKey=ID_UNICA_DO_SISTEMA_CLIENTE&bearertoken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5hbnRJZCI6MSwicHJvZmlsZSI6ImFkbWluIiwic2Vzc2lvbklkIjoxLCJpYXQiOjE3MDU3NjcxNDksImV4cCI6MTc2ODgzOTE0OX0.2RgbDllXF9p4QX-lYDsGNWtxK0XVtVI25_ECvFgA8EQ",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"v1",
+						"api",
+						"external",
+						"7e862d5e-87a3-4e3c-80e7-6c26301f11d7",
+						"params",
+						""
+					],
+					"query": [
+						{
+							"key": "body",
+							"value": "A%20mensagem%20desejadaa"
+						},
+						{
+							"key": "number",
+							"value": "553588754197"
+						},
+						{
+							"key": "externalKey",
+							"value": "ID_UNICA_DO_SISTEMA_CLIENTE"
+						},
+						{
+							"key": "bearertoken",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5hbnRJZCI6MSwicHJvZmlsZSI6ImFkbWluIiwic2Vzc2lvbklkIjoxLCJpYXQiOjE3MDU3NjcxNDksImV4cCI6MTc2ODgzOTE0OX0.2RgbDllXF9p4QX-lYDsGNWtxK0XVtVI25_ECvFgA8EQ"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SendMessageAPIFile",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5hbnRJZCI6MSwicHJvZmlsZSI6ImFkbWluIiwic2Vzc2lvbklkIjoxLCJpYXQiOjE3MDU3NjcxNDksImV4cCI6MTc2ODgzOTE0OX0.2RgbDllXF9p4QX-lYDsGNWtxK0XVtVI25_ECvFgA8EQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "media",
+							"type": "file",
+							"src": "/C:/Users/Pedro/Downloads/cps_vanderlei.docx"
+						},
+						{
+							"key": "body",
+							"value": "Mensagem de teste 2",
+							"type": "text"
+						},
+						{
+							"key": "number",
+							"value": "553588754197",
+							"type": "text"
+						},
+						{
+							"key": "externalKey",
+							"value": "externalKeydd211",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3100/v1/api/external/7e862d5e-87a3-4e3c-80e7-6c26301f11d7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"v1",
+						"api",
+						"external",
+						"7e862d5e-87a3-4e3c-80e7-6c26301f11d7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SendMessageAPIFileURL",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5hbnRJZCI6MSwicHJvZmlsZSI6ImFkbWluIiwic2Vzc2lvbklkIjoxLCJpYXQiOjE3MDU3NjcxNDksImV4cCI6MTc2ODgzOTE0OX0.2RgbDllXF9p4QX-lYDsGNWtxK0XVtVI25_ECvFgA8EQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"mediaUrl\": \"https://comunidadezdg.com.br/wp-content/uploads/2022/07/icon100.png\",\r\n    \"body\": \"A mensagem desejada\",\r\n    \"number\": \"5515998566622\",\r\n    \"externalKey\": \"ID_UNICA_DO_SISTEMA_CLIENTE_PARA_EXECUTAR_UMA_ACAO_COM_WEBHOOK\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3100/v1/api/external/7e862d5e-87a3-4e3c-80e7-6c26301f11d7/url",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"v1",
+						"api",
+						"external",
+						"7e862d5e-87a3-4e3c-80e7-6c26301f11d7",
+						"url"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SendMessageAPIText",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5hbnRJZCI6MSwicHJvZmlsZSI6ImFkbWluIiwic2Vzc2lvbklkIjoxLCJpYXQiOjE3MDU3NjcxNDksImV4cCI6MTc2ODgzOTE0OX0.2RgbDllXF9p4QX-lYDsGNWtxK0XVtVI25_ECvFgA8EQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"body\": \"A mensagem desejada\",\n    \"number\": \"5515998566622\",\n    \"externalKey\": \"ID_UNICA_DO_SISTEMA_CLIENTE_PARA_EXECUTAR_UMA_ACAO_COM_WEBHOOK\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3100/v1/api/external/7e862d5e-87a3-4e3c-80e7-6c26301f11d7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"v1",
+						"api",
+						"external",
+						"7e862d5e-87a3-4e3c-80e7-6c26301f11d7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SendMessageAPIVoice",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5hbnRJZCI6MSwicHJvZmlsZSI6ImFkbWluIiwic2Vzc2lvbklkIjoxLCJpYXQiOjE3MDU3NjcxNDksImV4cCI6MTc2ODgzOTE0OX0.2RgbDllXF9p4QX-lYDsGNWtxK0XVtVI25_ECvFgA8EQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"audio\": \"https://comunidadezdg.com.br/wp-content/uploads/2022/12/audio.ogg\",\n    \"number\": \"5515998566622\",\n    \"externalKey\": \"ID_UNICA_DO_SISTEMA_CLIENTE_PARA_EXECUTAR_UMA_ACAO_COM_WEBHOOK\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3100/v1/api/external/7e862d5e-87a3-4e3c-80e7-6c26301f11d7/voice",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"v1",
+						"api",
+						"external",
+						"7e862d5e-87a3-4e3c-80e7-6c26301f11d7",
+						"voice"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SetQueue",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5hbnRJZCI6MSwicHJvZmlsZSI6ImFkbWluIiwic2Vzc2lvbklkIjoxLCJpYXQiOjE3MDU3NjcxNDksImV4cCI6MTc2ODgzOTE0OX0.2RgbDllXF9p4QX-lYDsGNWtxK0XVtVI25_ECvFgA8EQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"ticketId\": 4,\n    \"queueId\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3100/v1/api/external/7e862d5e-87a3-4e3c-80e7-6c26301f11d7/updatequeue",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"v1",
+						"api",
+						"external",
+						"7e862d5e-87a3-4e3c-80e7-6c26301f11d7",
+						"updatequeue"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ShowTicketInformation",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5hbnRJZCI6MSwicHJvZmlsZSI6ImFkbWluIiwic2Vzc2lvbklkIjoxLCJpYXQiOjE3MDU3NjcxNDksImV4cCI6MTc2ODgzOTE0OX0.2RgbDllXF9p4QX-lYDsGNWtxK0XVtVI25_ECvFgA8EQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"number\":\"551191234567\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3100/v1/api/external/7e862d5e-87a3-4e3c-80e7-6c26301f11d7/showticket",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"v1",
+						"api",
+						"external",
+						"7e862d5e-87a3-4e3c-80e7-6c26301f11d7",
+						"showticket"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ShowTicketInformationChatBot",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5hbnRJZCI6MSwicHJvZmlsZSI6ImFkbWluIiwic2Vzc2lvbklkIjoxLCJpYXQiOjE3MDU3NjcxNDksImV4cCI6MTc2ODgzOTE0OX0.2RgbDllXF9p4QX-lYDsGNWtxK0XVtVI25_ECvFgA8EQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"number\":\"553588754197\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3100/v1/api/external/7141066a-8152-41d4-b429-f47e2068ee27/showticketchatbot",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"v1",
+						"api",
+						"external",
+						"7141066a-8152-41d4-b429-f47e2068ee27",
+						"showticketchatbot"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ShowAllTicketInformation",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5hbnRJZCI6MSwicHJvZmlsZSI6ImFkbWluIiwic2Vzc2lvbklkIjoxLCJpYXQiOjE3MDU3NjcxNDksImV4cCI6MTc2ODgzOTE0OX0.2RgbDllXF9p4QX-lYDsGNWtxK0XVtVI25_ECvFgA8EQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"number\":\"553588754197\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3100/v1/api/external/7141066a-8152-41d4-b429-f47e2068ee27/showallticket",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"v1",
+						"api",
+						"external",
+						"7141066a-8152-41d4-b429-f47e2068ee27",
+						"showallticket"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5hbnRJZCI6MSwicHJvZmlsZSI6ImFkbWluIiwic2Vzc2lvbklkIjoxLCJpYXQiOjE2MTYwNDAwNDgsImV4cCI6MTY3OTExMjA0OH0.gDoVv_JDnrPLFLAzJgwpz_Cwd2JGhzeCUz2ILQ2uRRA",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BaseUrl",
+			"value": ""
+		}
+	]
+}

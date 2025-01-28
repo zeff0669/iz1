@@ -1,0 +1,80 @@
+<template>
+  <div class="text-weight-medium">
+    <q-item tag="label" v-ripple>
+        <q-item-section>
+          <q-item-label>Ativar integração com ChatGPT</q-item-label>
+          <q-item-label caption> Quando ativo, o sistema consumirá informações do ChatGPT. </q-item-label>
+        </q-item-section>
+
+        <q-item-section avatar>
+          <q-toggle
+            v-model="settings.chatgpt"
+            false-value="disabled"
+            true-value="enabled"
+            checked-icon="check"
+            keep-color
+            :color="settings.chatgpt === 'enabled' ? 'green' : 'negative'"
+            size="md"
+            unchecked-icon="clear"
+            @input="atualizarConfiguracao('chatgpt')" 
+          />
+        </q-item-section>
+    </q-item>
+    <div class="row q-px-md" v-if="settings.chatgpt === 'enabled'">
+        <div class="col-12">
+          <q-input
+            v-model="settings.chatgptApiKey"
+            type="textarea"
+            autogrow
+            dense
+            outlined
+            label="API Key OpenAI:"
+            input-style="min-height: 6vh; max-height: 9vh;"
+            debounce="700"
+            @input="atualizarConfiguracao('chatgptApiKey')" 
+          />
+        </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import { defineComponent } from 'vue'
+import { ListarConfiguracoes, AlterarConfiguracao } from 'src/service/configuracoes'
+
+export default defineComponent({
+  data() {
+    return {
+      settings: {
+        chatgpt: null,
+        chatgptApiKey: '',
+      },
+    }
+  },
+  methods: {
+    async atualizarConfiguracao(key) {
+      try {
+        await AlterarConfiguracao({ key, value: this.settings[key] })
+        this.$q.notify({
+          type: 'positive',
+          message: 'Configuração alterada!',
+          progress: true,
+          actions: [{ icon: 'close', round: true, color: 'white' }],
+        })
+      } catch (error) {
+        console.error('error - AlterarConfiguracao', error)
+        this.$notificarErro('Ocorreu um erro!', error)
+      }
+    },
+    async buscarConfiguracoes() {
+      const { data } = await ListarConfiguracoes()
+      for (const setting of data) {
+        this.settings[setting.key] = setting.value
+      }
+    },
+  },
+  mounted() {
+    this.buscarConfiguracoes()
+  },
+})
+</script>
